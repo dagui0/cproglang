@@ -1,7 +1,7 @@
 OS          = $(shell uname -s)
 
 SRC_DIR     = .
-CFLAGS      = -I../libbo/include 
+CFLAGS      = -I../libbo/include
 LDFLAGS     = -L../libbo/lib -lbo
 LDFLAGS32   = -L../libbo/lib32 -lbo
 
@@ -11,23 +11,23 @@ PROGRAMS32  = integer_test.32.out float_test.32.out
 
 .PHONY: all clean
 
-.if $(OS) == Darwin
+ifeq ($(OS), Darwin)
 all: $(PROGRAMS) 
-.else
+else
 all: $(PROGRAMS) $(PROGRAMS32)
-.endif
+endif
 
 integer_test.out: $(SRC_DIR)/integer_test.c
-	$(CC) $(CFLAGS) -o $@ $> $(LDFLAGS) 
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) 
 
 integer_test.32.out: $(SRC_DIR)/integer_test.c
-	$(CC) $(CFLAGS) -m32 -o $@ $>  $(LDFLAGS32)
+	$(CC) $(CFLAGS) -m32 -o $@ $<  $(LDFLAGS32)
 
 float_test.out: $(SRC_DIR)/float_test.c
-	$(CC) $(CFLAGS) -o $@ $> $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
 float_test.32.out: $(SRC_DIR)/float_test.c
-	$(CC) $(CFLAGS) -m32 -o $@ $> $(LDFLAGS32)
+	$(CC) $(CFLAGS) -m32 -o $@ $< $(LDFLAGS32)
 
 clean:
 	rm -f $(PROGRAMS) $(PROGRAMS32) *.o *.a

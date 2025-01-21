@@ -8,7 +8,7 @@ OBJS      = lib/chomp.o
 
 CFLAGS = -I$(SRC_DIR)/include
 
-.PHONEY: all clean nm
+.PHONY: all clean nm
 
 all: $(LIBS)
 
@@ -19,7 +19,7 @@ lib/libchomp.a: $(OBJS)
 
 lib/chomp.o: $(SRC_DIR)/src/chomp.c $(HEADERS)
 	mkdir -p lib && \
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $(SRC_DIR)/src/chomp.c
 
 nm: $(LIBS)
 	for a in $(LIBS); do \

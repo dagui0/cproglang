@@ -8,7 +8,7 @@ OBJS      = lib/hello_func.o
 
 CFLAGS = -I$(SRC_DIR)/include
 
-.PHONEY: all clean nm
+.PHONY: all clean nm
 
 all: $(LIBS)
 
@@ -19,7 +19,7 @@ lib/libhello.a: $(OBJS)
 
 lib/hello_func.o: $(SRC_DIR)/src/hello_func.c $(HEADERS)
 	mkdir -p lib && \
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $(SRC_DIR)/src/hello_func.c
 
 nm: $(LIBS)
 	for a in $(LIBS); do \

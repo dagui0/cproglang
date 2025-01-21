@@ -1,6 +1,6 @@
 DIRS = libbo datatypes
 
-.PHONEY: all clean
+.PHONY: all clean
 
 all:
 	for d in $(DIRS); do \

@@ -14,7 +14,7 @@ OBJS32    = lib32/bo_print.o
 
 CFLAGS    = -I./include
 
-.PHONEY: all clean nm
+.PHONY: all clean nm
 
 all: $(LIBS)
 

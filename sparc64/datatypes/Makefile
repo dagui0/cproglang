@@ -13,7 +13,7 @@ LDFLAGS32   = -L../libbo/lib32 -lbo -static
 PROGRAMS    = integer_test.out integer_test32.out \
 		float_test.out float_test32.out
 
-.PHONEY: all clean
+.PHONY: all clean
 
 all: $(PROGRAMS)
 
