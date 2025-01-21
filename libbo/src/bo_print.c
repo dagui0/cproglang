@@ -1,7 +1,23 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include <endian.h>
 #include <bo.h>
+
+#if defined(__APPLE__)
+  #include <machine/endian.h>
+#elif defined(OS_SOLARIS)
+  #include <sys/isa_defs.h>
+  #ifdef _LITTLE_ENDIAN
+    #define LITTLE_ENDIAN
+  #else
+    #define BIG_ENDIAN
+  #endif
+#elif defined(OS_FREEBSD) || defined(OS_OPENBSD) || defined(OS_NETBSD) ||\
+      defined(OS_DRAGONFLYBSD)
+  #include <sys/types.h>
+  #include <sys/endian.h>
+#else
+  #include <endian.h>
+#endif
 
 static int bo_countfmt(const char *format) {
 	int args = 0;

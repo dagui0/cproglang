@@ -1,8 +1,14 @@
+OS        = $(shell uname -s)
+
 NM        = nm
 RANLIB    = ranlib
 
 SRC_DIR   = .
+ifeq ($(OS), Darwin)
+LIBS      = lib/libbo.a
+else
 LIBS      = lib/libbo.a lib32/libbo.a
+endif
 HEADERS   = include/bo.h
 OBJS      = lib/bo_print.o
 OBJS32    = lib32/bo_print.o

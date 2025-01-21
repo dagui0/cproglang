@@ -12,13 +12,13 @@ int main(int argc, char** argv) {
         long_val = (long)long_long_val;
         int_val = (int)long_long_val;
 
-        printf("int       (%01d bytes) = %d\n", sizeof(int_val), int_val);
+        printf("int       (%01ld bytes) = %d\n", sizeof(int_val), int_val);
         bo_print(&int_val, sizeof(int_val));
 
-        printf("long      (%01d bytes) = %ld\n", sizeof(long_val), long_val);
+        printf("long      (%01ld bytes) = %ld\n", sizeof(long_val), long_val);
         bo_print(&long_val, sizeof(long_val));
 
-        printf("long long (%01d bytes) = %ld\n", sizeof(long_long_val), long_long_val);
+        printf("long long (%01ld bytes) = %lld\n", sizeof(long_long_val), long_long_val);
         bo_print(&long_long_val, sizeof(long_long_val));
 
         return 0;
