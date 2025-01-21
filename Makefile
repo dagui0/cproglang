@@ -1,23 +1,22 @@
-HAS_SPARC = $(shell which sparc64-linux-gnu-gcc)
-
-DIRS = libbo datatypes libhello hello libchomp input operator
-
-.if empty(HAS_SPARC)
-TARGET_DIRS = $(DIRS)
-.else
-TARGET_DIRS = $(DIRS) sparc64
-.endif
+TARGET_DIRS = libbo datatypes libhello hello libchomp input operator
 
 .PHONY: all clean
 
 all:
 	for d in $(TARGET_DIRS); do \
-	  $(MAKE) -C $$d $@ || break; \
+	  if [ `uname -s` = 'SunOS' -a -f $$d/Makefile.sun ]; then \
+	    MK='-f Makefile.sun'; \
+	  else \
+	    MK=; \
+	  fi; \
+	  (cd $$d; $(MAKE) $$MK $@) || break; \
 	done
 clean:
 	for d in $(TARGET_DIRS); do \
-	  $(MAKE) -C $$d $@ || break; \
+	  if [ `uname -s` = 'SunOS' -a -f $$d/Makefile.sun ]; then \
+	    MK='-f Makefile.sun'; \
+	  else \
+	    MK=; \
+	  fi; \
+	  (cd $$d; $(MAKE) $$MK $@) || break; \
 	done
-
-check:
-	@echo $(HAS_SPARC) $(TARGET_DIRS)

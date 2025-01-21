@@ -4,12 +4,14 @@
 
 #if defined(__APPLE__)
   #include <machine/endian.h>
-#elif defined(OS_SOLARIS)
+#elif defined(__sun)
   #include <sys/isa_defs.h>
+  #define __LITTLE_ENDIAN 1234
+  #define __BIG_ENDIAN 4321
   #ifdef _LITTLE_ENDIAN
-    #define LITTLE_ENDIAN
+    #define __BYTE_ORDER __LITTLE_ENDIAN
   #else
-    #define BIG_ENDIAN
+    #define __BYTE_ORDER __BIG_ENDIAN
   #endif
 #elif defined(OS_FREEBSD) || defined(OS_OPENBSD) || defined(OS_NETBSD) ||\
       defined(OS_DRAGONFLYBSD)

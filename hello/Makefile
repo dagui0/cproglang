@@ -11,7 +11,7 @@ PROGRAMS    = hello.out
 all: $(PROGRAMS)
 
 hello.out: $(SRC_DIR)/hello.c
-	$(CC) $(CFLAGS) -o $@ $> $(LDFLAGS) 
+	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/hello.c $(LDFLAGS) 
 
 clean:
 	rm -f $(PROGRAMS) *.o *.a

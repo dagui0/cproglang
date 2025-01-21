@@ -1,0 +1,27 @@
+SRC_DIR     = .
+CFLAGS      = -I../libbo/include 
+LDFLAGS     = -L../libbo/lib -lbo
+LDFLAGS32   = -L../libbo/lib32 -lbo
+
+
+PROGRAMS    = integer_test.out float_test.out
+PROGRAMS32  = integer_test.32.out float_test.32.out
+
+.PHONY: all clean
+
+all: $(PROGRAMS) $(PROGRAMS32)
+
+integer_test.out: $(SRC_DIR)/integer_test.c
+	$(CC) $(CFLAGS) -m64 -o $@ $(SRC_DIR)/integer_test.c $(LDFLAGS)
+
+integer_test.32.out: $(SRC_DIR)/integer_test.c
+	$(CC) $(CFLAGS) -m32 -o $@ $(SRC_DIR)/integer_test.c $(LDFLAGS32)
+
+float_test.out: $(SRC_DIR)/float_test.c
+	$(CC) $(CFLAGS) -m64 -o $@ $(SRC_DIR)/float_test.c $(LDFLAGS)
+
+float_test.32.out: $(SRC_DIR)/float_test.c
+	$(CC) $(CFLAGS) -m32 -o $@ $(SRC_DIR)/float_test.c $(LDFLAGS32)
+
+clean:
+	rm -f $(PROGRAMS) $(PROGRAMS32) *.o *.a

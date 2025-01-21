@@ -18,6 +18,3 @@ clean:
 	for d in $(TARGET_DIRS); do \
 	  $(MAKE) -C $$d $@ || break; \
 	done
-
-check:
-	@echo $(HAS_SPARC) $(TARGET_DIRS)

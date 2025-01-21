@@ -11,7 +11,7 @@ PROGRAMS    = op_test.out
 all: $(PROGRAMS)
 
 op_test.out: $(SRC_DIR)/op_test.c
-	$(CC) $(CFLAGS) -o $@ $> $(LDFLAGS) 
+	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/op_test.c $(LDFLAGS) 
 
 clean:
 	rm -f $(PROGRAMS) *.o *.a
