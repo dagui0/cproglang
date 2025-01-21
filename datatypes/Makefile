@@ -5,22 +5,23 @@ LDFLAGS     = -L../libbo/lib -lbo
 LDFLAGS32   = -L../libbo/lib32 -lbo
 
 
-PROGRAMS    = integer_test integer_test32 float_test float_test32
+PROGRAMS    = integer_test.out integer_test32.out \
+		float_test.out float_test32.out
 
 .PHONEY: all clean
 
 all: $(PROGRAMS)
 
-integer_test: $(SRC_DIR)/integer_test.c
+integer_test.out: $(SRC_DIR)/integer_test.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) 
 
-integer_test32: $(SRC_DIR)/integer_test.c
+integer_test32.out: $(SRC_DIR)/integer_test.c
 	$(CC) $(CFLAGS) -m32 -o $@ $<  $(LDFLAGS32)
 
-float_test: $(SRC_DIR)/float_test.c
+float_test.out: $(SRC_DIR)/float_test.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
-float_test32: $(SRC_DIR)/float_test.c
+float_test32.out: $(SRC_DIR)/float_test.c
 	$(CC) $(CFLAGS) -m32 -o $@ $< $(LDFLAGS32)
 
 clean:

@@ -19,7 +19,7 @@ CFLAGS    = -I./include
 all: $(LIBS)
 
 include/bo.h: $(SRC_DIR)/include/bo.h
-	mkdir -p inlcude && \
+	mkdir -p include && \
 	cp $< $@
 
 lib/libbo.a: $(OBJS)
