@@ -13,10 +13,6 @@
   #else
     #define __BYTE_ORDER __BIG_ENDIAN
   #endif
-#elif defined(OS_FREEBSD) || defined(OS_OPENBSD) || defined(OS_NETBSD) ||\
-      defined(OS_DRAGONFLYBSD)
-  #include <sys/types.h>
-  #include <sys/endian.h>
 #else
   #include <endian.h>
 #endif
