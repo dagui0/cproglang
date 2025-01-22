@@ -3,9 +3,9 @@
 #include <bo.h>
 
 #ifdef __x86_64__
-#define SIZE_FMT "%1lu"
+#  define SIZE_FMT "%1lu"
 #else
-#define SIZE_FMT "%1u"
+#  define SIZE_FMT "%1u"
 #endif
 
 int main(int argc, char** argv) {

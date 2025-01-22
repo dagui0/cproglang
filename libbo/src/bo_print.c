@@ -3,28 +3,28 @@
 #include <bo.h>
 
 #if defined(__APPLE__)
-  #include <machine/endian.h>
+#  include <machine/endian.h>
 #elif defined(__sun)
-  #include <sys/isa_defs.h>
-  #define __LITTLE_ENDIAN 1234
-  #define __BIG_ENDIAN 4321
-  #ifdef _LITTLE_ENDIAN
-    #define __BYTE_ORDER __LITTLE_ENDIAN
-  #else
-    #define __BYTE_ORDER __BIG_ENDIAN
-  #endif
+#  include <sys/isa_defs.h>
+#  define __LITTLE_ENDIAN 1234
+#  define __BIG_ENDIAN 4321
+#  ifdef _LITTLE_ENDIAN
+#    define __BYTE_ORDER __LITTLE_ENDIAN
+#  else
+#    define __BYTE_ORDER __BIG_ENDIAN
+#  endif
 #elif defined(_WIN16) || defined(_WIN32) || defined(_WIN64)
-  #include <winsock2.h>
-  #include <sys/param.h>
-  #define __LITTLE_ENDIAN 1234
-  #define __BIG_ENDIAN 4321
-  #if BYTE_ORDER == LITTLE_ENDIAN
-    #define __BYTE_ORDER __LITTLE_ENDIAN
-  #else
-    #define __BYTE_ORDER __BIG_ENDIAN
-  #endif
+#  include <winsock2.h>
+#  include <sys/param.h>
+#  define __LITTLE_ENDIAN 1234
+#  define __BIG_ENDIAN 4321
+#  if BYTE_ORDER == LITTLE_ENDIAN
+#    define __BYTE_ORDER __LITTLE_ENDIAN
+#  else
+#    define __BYTE_ORDER __BIG_ENDIAN
+#  endif
 #else
-  #include <endian.h>
+#  include <endian.h>
 #endif
 
 static int bo_countfmt(const char *format) {
