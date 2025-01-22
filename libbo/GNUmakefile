@@ -8,6 +8,12 @@ ifeq ($(OS), Darwin)
 LIBS      = lib/libbo.a
 else ifeq ($(OS), Cygwin)
 LIBS      = lib/libbo.a
+else ifeq ($(OS), Msys)
+ifeq ($(MSYSTEM), MINGW32)
+LIBS      = lib32/libbo.a
+else
+LIBS      = lib/libbo.a
+endif
 else
 LIBS      = lib/libbo.a lib32/libbo.a
 endif

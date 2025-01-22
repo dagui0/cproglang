@@ -19,6 +19,14 @@ PROGRAM32   =
 else ifeq ($(OS), Cygwin)
 PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT)
 PROGRAM32   =
+else ifeq ($(OS), Msys)
+ifeq ($(MSYSTEM), MINGW32)
+PROGRAMS    = 
+PROGRAMS32  = integer_test.32.$(OUTEXT) float_test.32.$(OUTEXT)
+else
+PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT)
+PROGRAM32   =
+endif
 else
 PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT)
 PROGRAMS32  = integer_test.32.$(OUTEXT) float_test.32.$(OUTEXT)

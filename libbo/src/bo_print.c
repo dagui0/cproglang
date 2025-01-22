@@ -13,6 +13,16 @@
   #else
     #define __BYTE_ORDER __BIG_ENDIAN
   #endif
+#elif defined(_WIN16) || defined(_WIN32) || defined(_WIN64)
+  #include <winsock2.h>
+  #include <sys/param.h>
+  #define __LITTLE_ENDIAN 1234
+  #define __BIG_ENDIAN 4321
+  #if BYTE_ORDER == LITTLE_ENDIAN
+    #define __BYTE_ORDER __LITTLE_ENDIAN
+  #else
+    #define __BYTE_ORDER __BIG_ENDIAN
+  #endif
 #else
   #include <endian.h>
 #endif
