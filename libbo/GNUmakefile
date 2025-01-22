@@ -1,10 +1,12 @@
-OS        = $(shell uname -s)
+OS        = $(shell uname -o)
 
 NM        = nm
 RANLIB    = ranlib
 
 SRC_DIR   = .
 ifeq ($(OS), Darwin)
+LIBS      = lib/libbo.a
+else ifeq ($(OS), Cygwin)
 LIBS      = lib/libbo.a
 else
 LIBS      = lib/libbo.a lib32/libbo.a

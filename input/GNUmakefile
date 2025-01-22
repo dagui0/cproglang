@@ -1,22 +1,30 @@
+OS          = $(shell uname -o)
 
 SRC_DIR     = .
 CFLAGS      = -I../libchomp/include
 LDFLAGS     = -L../libchomp/lib -lchomp
 
+ifeq ($(OS), Cygwin)
+OUTEXT      = exe
+else ifeq ($(OS), Msys)
+OUTEXT      = exe
+else
+OUTEXT      = out
+endif
 
-PROGRAMS    = fgets_test.out getchar_test.out scanf_test.out
+PROGRAMS    = fgets_test.$(OUTEXT) getchar_test.$(OUTEXT) scanf_test.$(OUTEXT)
 
 .PHONY: all clean
 
 all: $(PROGRAMS)
 
-fgets_test.out: $(SRC_DIR)/fgets_test.c
+fgets_test.$(OUTEXT): $(SRC_DIR)/fgets_test.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) 
 
-getchar_test.out: $(SRC_DIR)/getchar_test.c
+getchar_test.$(OUTEXT): $(SRC_DIR)/getchar_test.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
-scanf_test.out: $(SRC_DIR)/scanf_test.c
+scanf_test.$(OUTEXT): $(SRC_DIR)/scanf_test.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
 clean:

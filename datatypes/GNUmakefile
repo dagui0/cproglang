@@ -1,33 +1,47 @@
-OS          = $(shell uname -s)
+OS          = $(shell uname -o)
 
 SRC_DIR     = .
 CFLAGS      = -I../libbo/include
 LDFLAGS     = -L../libbo/lib -lbo
 LDFLAGS32   = -L../libbo/lib32 -lbo
 
+ifeq ($(OS), Cygwin)
+OUTEXT      = exe
+else ifeq ($(OS), Msys)
+OUTEXT      = exe
+else
+OUTEXT      = out
+endif
 
-PROGRAMS    = integer_test.out float_test.out
-PROGRAMS32  = integer_test.32.out float_test.32.out
+ifeq ($(OS), Darwin)
+PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT)
+PROGRAM32   =
+else ifeq ($(OS), Cygwin)
+PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT)
+PROGRAM32   =
+else
+PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT)
+PROGRAMS32  = integer_test.32.$(OUTEXT) float_test.32.$(OUTEXT)
+endif
 
 .PHONY: all clean
 
-ifeq ($(OS), Darwin)
-all: $(PROGRAMS) 
-else
 all: $(PROGRAMS) $(PROGRAMS32)
-endif
 
-integer_test.out: $(SRC_DIR)/integer_test.c
+integer_test.$(OUTEXT): $(SRC_DIR)/integer_test.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) 
 
-integer_test.32.out: $(SRC_DIR)/integer_test.c
+integer_test.32.$(OUTEXT): $(SRC_DIR)/integer_test.c
 	$(CC) $(CFLAGS) -m32 -o $@ $<  $(LDFLAGS32)
 
-float_test.out: $(SRC_DIR)/float_test.c
+float_test.$(OUTEXT): $(SRC_DIR)/float_test.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
-float_test.32.out: $(SRC_DIR)/float_test.c
+float_test.32.$(OUTEXT): $(SRC_DIR)/float_test.c
 	$(CC) $(CFLAGS) -m32 -o $@ $< $(LDFLAGS32)
 
 clean:
 	rm -f $(PROGRAMS) $(PROGRAMS32) *.o *.a
+
+check:
+	echo \"$(OS)\"
