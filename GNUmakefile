@@ -1,6 +1,6 @@
 HAS_SPARC = $(shell which sparc64-linux-gnu-gcc)
 
-DIRS = libbo datatypes libhello hello libchomp input operator
+DIRS = libbo datatypes libhello hello libchomp input operator pointer
 
 ifeq "$(HAS_SPARC)" ''
 TARGET_DIRS = $(DIRS)

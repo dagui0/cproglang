@@ -25,13 +25,25 @@ These source codes are for training in C language coding.
 
 ## Program List
 
+### hello/
 * [hello](hello/hello.c)
+
+### datatypes/
 * [integer_test](datatypes/integer_test.c)
 * [float_test](datatypes/float_test.c)
+
+### input/
 * [fgets_test](input/fgets_test.c)
 * [getchar_test](input/getchar_test.c)
 * [scanf_test](input/scanf_test.c)
+
+### operator/
 * [op_test](operator/op_test.c)
+* [op_precedence](operator/op_precedence.c)
+* [compound_literal](operator/compound_literal.c)
+
+### pointer/
+* [dangling](pointer/dangling.c)
 
 ## Library
 
