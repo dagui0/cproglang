@@ -10,6 +10,7 @@ These source codes are for training in C language coding.
 * [fgets_test](input/fgets_test.c)
 * [getchar_test](input/getchar_test.c)
 * [scanf_test](input/scanf_test.c)
+* [op_test](operator/op_test.c)
 
 
 ## Library
