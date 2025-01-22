@@ -2,6 +2,28 @@
 
 These source codes are for training in C language coding.
 
+## Test platforms
+
+* Linux (gcc)
+  * x86_64-linux-gnu
+  * i386-linux-gnu
+  * sparc64-linux-gnu (tested using qemu-sparc64-static)
+* Soaris 11.4.42 (Sun C)
+  * x86_64-solaris
+  * i386-solaris
+* macOS (clang)
+  * x86_64-apple-darwin
+* FreeBSD (clang)
+  * x86_64-freebsd
+  * i386-freebsd
+* Windows 11 (gcc)
+  * Cygwin
+  * Msys2 UCRT64
+  * Msys2 MINGW32
+  * Msys2 MINGW64
+* Alpine (gcc)
+  * x86_64-linux-musl
+
 ## Program List
 
 * [hello](hello/hello.c)
@@ -11,7 +33,6 @@ These source codes are for training in C language coding.
 * [getchar_test](input/getchar_test.c)
 * [scanf_test](input/scanf_test.c)
 * [op_test](operator/op_test.c)
-
 
 ## Library
 
