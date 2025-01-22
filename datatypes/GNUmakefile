@@ -1,4 +1,5 @@
 OS          = $(shell uname -o)
+OSID        = $(shell grep '^ID=' /etc/os-release)
 
 SRC_DIR     = .
 CFLAGS      = -I../libbo/include
@@ -27,6 +28,9 @@ else
 PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT)
 PROGRAM32   =
 endif
+else ifeq ($(OSID), ID=alpine)
+PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT)
+PROGRAM32   =
 else
 PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT)
 PROGRAMS32  = integer_test.32.$(OUTEXT) float_test.32.$(OUTEXT)

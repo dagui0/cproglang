@@ -1,4 +1,5 @@
 OS        = $(shell uname -o)
+OSID      = $(shell grep '^ID=' /etc/os-release)
 
 NM        = nm
 RANLIB    = ranlib
@@ -14,6 +15,8 @@ LIBS      = lib32/libbo.a
 else
 LIBS      = lib/libbo.a
 endif
+else ifeq ($(OSID), ID=alpine)
+LIBS      = lib/libbo.a
 else
 LIBS      = lib/libbo.a lib32/libbo.a
 endif
