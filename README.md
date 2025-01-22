@@ -8,6 +8,7 @@ These source codes are for training in C language coding.
   * x86_64-linux-gnu
   * i386-linux-gnu
   * sparc64-linux-gnu (tested using qemu-sparc64-static)
+  * x86_64-linux-musl (Alpine Linux with gcc)
 * Soaris 11.4.42 (Sun C)
   * x86_64-solaris
   * i386-solaris
@@ -21,8 +22,6 @@ These source codes are for training in C language coding.
   * Msys2 UCRT64
   * Msys2 MINGW32
   * Msys2 MINGW64
-* Alpine (gcc)
-  * x86_64-linux-musl
 
 ## Program List
 
