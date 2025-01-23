@@ -5,4 +5,5 @@
 *~
 *.out
 *.exe
+.vscode
 sparc64/*/include
