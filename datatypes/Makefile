@@ -33,9 +33,9 @@ volatile_type.32.$(OUTEXT): $(SRC_DIR)/volatile_type.c
 	$(CC) $(CFLAGS) -m32 -o $@ $(SRC_DIR)/volatile_type.c $(LDFLAGS32)
 
 lvalue.$(OUTEXT): $(SRC_DIR)/lvalue.cpp
-	$(CXX) $(CXXFLAGS) -o $@ $< $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) -o $@ $(SRC_DIR)/lvalue.cpp $(LDFLAGS)
 lvalue.32.$(OUTEXT): $(SRC_DIR)/lvalue.cpp
-	$(CXX) $(CXXFLAGS) -m32 -o $@ $< $(LDFLAGS32)
+	$(CXX) $(CXXFLAGS) -m32 -o $@ $(SRC_DIR)/lvalue.cpp $(LDFLAGS32)
 
 clean:
 	rm -f $(PROGRAMS) $(PROGRAMS32) *.o *.a
