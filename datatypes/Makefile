@@ -18,22 +18,22 @@ PROGRAMS32  = integer_test.32.$(OUTEXT) float_test.32.$(OUTEXT) volatile_type.32
 all: $(PROGRAMS) $(PROGRAMS32)
 
 integer_test.$(OUTEXT): $(SRC_DIR)/integer_test.c
-	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/integer_test.c $(LDFLAGS) 
+	$(CC) $(CFLAGS) -m64 -o $@ $(SRC_DIR)/integer_test.c $(LDFLAGS) 
 integer_test.32.$(OUTEXT): $(SRC_DIR)/integer_test.c
 	$(CC) $(CFLAGS) -m32 -o $@ $(SRC_DIR)/integer_test.c  $(LDFLAGS32)
 
 float_test.$(OUTEXT): $(SRC_DIR)/float_test.c
-	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/float_test.c $(LDFLAGS)
+	$(CC) $(CFLAGS) -m64 -o $@ $(SRC_DIR)/float_test.c $(LDFLAGS)
 float_test.32.$(OUTEXT): $(SRC_DIR)/float_test.c
 	$(CC) $(CFLAGS) -m32 -o $@ $(SRC_DIR)/float_test.c $(LDFLAGS32)
 
 volatile_type.$(OUTEXT): $(SRC_DIR)/volatile_type.c
-	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/volatile_type.c $(LDFLAGS)
+	$(CC) $(CFLAGS) -m64 -o $@ $(SRC_DIR)/volatile_type.c $(LDFLAGS)
 volatile_type.32.$(OUTEXT): $(SRC_DIR)/volatile_type.c
 	$(CC) $(CFLAGS) -m32 -o $@ $(SRC_DIR)/volatile_type.c $(LDFLAGS32)
 
 lvalue.$(OUTEXT): $(SRC_DIR)/lvalue.cpp
-	$(CXX) $(CXXFLAGS) -o $@ $< $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) -m64 -o $@ $< $(LDFLAGS)
 lvalue.32.$(OUTEXT): $(SRC_DIR)/lvalue.cpp
 	$(CXX) $(CXXFLAGS) -m32 -o $@ $< $(LDFLAGS32)
 
