@@ -12,7 +12,8 @@ else
 OUTEXT      = out
 endif
 
-PROGRAMS    = op_test.$(OUTEXT) op_precedence.$(OUTEXT) compound_literal.$(OUTEXT)
+PROGRAMS    = op_test.$(OUTEXT) op_precedence.$(OUTEXT) compound_literal.$(OUTEXT) \
+			eval_order.$(OUTEXT)
 
 .PHONY: all clean
 
@@ -23,6 +24,8 @@ op_test.$(OUTEXT): $(SRC_DIR)/op_test.c
 op_precedence.$(OUTEXT): $(SRC_DIR)/op_precedence.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 compound_literal.$(OUTEXT): $(SRC_DIR)/compound_literal.c
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
+eval_order.$(OUTEXT): $(SRC_DIR)/eval_order.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
 clean:

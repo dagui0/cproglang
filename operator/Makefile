@@ -16,6 +16,8 @@ op_precedence.$(OUTEXT): $(SRC_DIR)/op_precedence.c
 	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/op_precedence.c $(LDFLAGS) 
 compound_literal.$(OUTEXT): $(SRC_DIR)/compound_literal.c
 	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/compound_literal.c $(LDFLAGS)
+eval_order.$(OUTEXT): $(SRC_DIR)/eval_order.c
+	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/eval_order.c $(LDFLAGS)
 
 clean:
 	rm -f $(PROGRAMS) *.o *.a
