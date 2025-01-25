@@ -1,4 +1,5 @@
-TARGET_DIRS = libbo datatypes libhello hello libchomp input operator pointer
+TARGET_DIRS = libbo datatypes libhello hello libchomp input operator pointer \
+				oldc
 
 .PHONY: all clean
 
