@@ -8,7 +8,7 @@ LDFLAGS32   = -L../libbo/lib32 -lbo
 OUTEXT      = out
 
 PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT) volatile_type.$(OUTEXT)
-PROGRAMS32  = integer_test.32.$(OUTEXT) float_test.32.$(OUTEXT) volatile_type.$(OUTEXT)
+PROGRAMS32  = integer_test.32.$(OUTEXT) float_test.32.$(OUTEXT) volatile_type.32.$(OUTEXT)
 
 .PHONY: all clean
 
