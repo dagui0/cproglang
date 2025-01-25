@@ -9,9 +9,9 @@ LDFLAGS32   = -L../libbo/lib32 -lbo
 OUTEXT      = out
 
 PROGRAMS    = integer_test.$(OUTEXT) float_test.$(OUTEXT) volatile_type.$(OUTEXT) \
-				lvalue.$(OUTEXT)
+				lvalue.$(OUTEXT) base2.$(OUTEXT)
 PROGRAMS32  = integer_test.32.$(OUTEXT) float_test.32.$(OUTEXT) volatile_type.32.$(OUTEXT) \
-				lvalue.32.$(OUTEXT)
+				lvalue.32.$(OUTEXT) base2.32.$(OUTEXT)
 
 .PHONY: all clean
 
@@ -36,6 +36,11 @@ lvalue.$(OUTEXT): $(SRC_DIR)/lvalue.cpp
 	$(CXX) $(CXXFLAGS) -m64 -o $@ $< $(LDFLAGS)
 lvalue.32.$(OUTEXT): $(SRC_DIR)/lvalue.cpp
 	$(CXX) $(CXXFLAGS) -m32 -o $@ $(SRC_DIR)/lvalue.cpp $(LDFLAGS32)
+
+base2.$(OUTEXT): $(SRC_DIR)/base2.c
+	$(CC) $(CFLAGS) -o $@ $(SRC_DIR)/base2.c $(LDFLAGS)
+base2.32.$(OUTEXT): $(SRC_DIR)/base2.c
+	$(CC) $(CFLAGS) -m32 -o $@ $(SRC_DIR)/base2.c $(LDFLAGS32)
 
 clean:
 	rm -f $(PROGRAMS) $(PROGRAMS32) *.o *.a

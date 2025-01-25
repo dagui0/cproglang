@@ -13,8 +13,12 @@
   ((byte) & 0x02 ? '1' : '0'), \
   ((byte) & 0x01 ? '1' : '0')
 
-int bo_print(const void*, const int);
+int bo_print(const void *ptr, const int size);
 
-int bo_fprint(FILE *restrict, const void*, const int);
+int bo_fprint(FILE *restrict out, const void *ptr, const int size);
+
+int bo_sprint(char *restrict buf, const void *ptr, const int size);
+
+int bo_snprint(char *restrict buf, const int bufsize, const void *ptr, const int size);
 
 #endif
